@@ -56,7 +56,7 @@
     pwdFiled.returnKeyType = UIReturnKeyGo;
     pwdFiled.textAlignment = NSTextAlignmentCenter;
     pwdFiled.secureTextEntry = YES;
-    pwdFiled.placeholder = @"Please enter your password";
+    pwdFiled.placeholder = @"请输入密码";
     pwdFiled.borderStyle = UITextBorderStyleRoundedRect;
     self.pwdFiled = pwdFiled;
     [self addSubview:pwdFiled];

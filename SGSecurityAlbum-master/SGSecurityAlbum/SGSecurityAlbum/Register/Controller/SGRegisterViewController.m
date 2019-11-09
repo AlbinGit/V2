@@ -25,7 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Register";
+    self.title = @"注册";
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -38,17 +38,17 @@
 
 - (void)handleRegisterWithPassword:(NSString *)password confirm:(NSString *)confirm {
     if (![password isEqualToString:confirm]) {
-        [MBProgressHUD showError:@"Passwords Do Not Match"];
+        [MBProgressHUD showError:@"密码不匹配"];
         return;
     } else if (!password.length) {
-        [MBProgressHUD showError:@"Password Cannot be Empty"];
+        [MBProgressHUD showError:@"密码不能为空"];
         return;
     }
     SGAccountManager *mgr = [SGAccountManager sharedManager];
     NSString *errorMessage = nil;
     [mgr registerAccountWithPassword:password errorMessage:&errorMessage];
     if (errorMessage == nil) {
-        [MBProgressHUD showSuccess:@"Register Succeeded"];
+        [MBProgressHUD showSuccess:@"注册成功"];
         [self.navigationController popViewControllerAnimated:YES];
     } else {
         [MBProgressHUD showError:errorMessage];

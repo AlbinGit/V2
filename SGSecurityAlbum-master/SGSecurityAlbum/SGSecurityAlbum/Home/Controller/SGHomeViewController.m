@@ -10,6 +10,7 @@
 #import "SGHomeViewController.h"
 #import "SGHomeView.h"
 #import "AppDelegate.h"
+#import "JWContentVIewController.h"
 
 @interface SGHomeViewController () <UICollectionViewDelegateFlowLayout, UIAlertViewDelegate>
 
@@ -38,7 +39,13 @@
     }];
     self.homeView = view;
     [self.view addSubview:view];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(logout)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"退出" style:UIBarButtonItemStylePlain target:self action:@selector(logout)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"备忘录" style:UIBarButtonItemStylePlain target:self action:@selector(memo)];
+}
+
+- (void)memo {
+    JWContentVIewController *memoHome = [[JWContentVIewController alloc] init];
+    [self.navigationController pushViewController:memoHome animated:YES];
 }
 
 - (void)logout {
@@ -105,5 +112,7 @@
         [self loadFiles];
     }
 }
+
+
 
 @end
